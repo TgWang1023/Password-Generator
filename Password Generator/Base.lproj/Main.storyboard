@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Password_Generator" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,11 +705,42 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Password_Generator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RYP-I2-oDh">
+                                <rect key="frame" x="28" y="172" width="424" height="48"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Password Generator" id="kDq-6f-VJa">
+                                    <font key="font" metaFont="system" size="40"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NPn-Tr-UG1">
+                                <rect key="frame" x="192" y="117" width="96" height="32"/>
+                                <buttonCell key="cell" type="push" title="Generate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tky-Tu-sOK">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="generateButtonPressed:" target="XfG-lQ-9wD" id="1s2-bn-uKX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="RYP-I2-oDh" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="09T-As-Ui5"/>
+                            <constraint firstItem="RYP-I2-oDh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="0mj-ZZ-bH4"/>
+                            <constraint firstItem="NPn-Tr-UG1" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="gTd-bG-jKf"/>
+                            <constraint firstAttribute="trailing" secondItem="RYP-I2-oDh" secondAttribute="trailing" constant="30" id="hSO-92-yLS"/>
+                            <constraint firstItem="NPn-Tr-UG1" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="hxl-Ao-5k8"/>
+                            <constraint firstItem="RYP-I2-oDh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="50" id="uyJ-xo-cXH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordLabel" destination="RYP-I2-oDh" id="wkL-wd-NPp"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
